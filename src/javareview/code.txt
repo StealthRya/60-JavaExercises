@@ -1,0 +1,147 @@
+package javareview;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Exercise1 
+        //Write a Java program that displays the message Hello.
+        System.out.println("Hello world I'm Ryko a java developper");
+        
+        
+        // 
+       // Exercise2 Write a Java program to enter two numbers and display their product.
+        Scanner myScanner = new Scanner(System.in);// creation d;un nouvel objet de type Scanner
+        System.out.println("Enter the first number: ");// Ask the first number to the user
+        int nbr0 = myScanner.nextInt();// Collect the first number
+        System.out.println("Enter a second number: ");// Ask the second number to the user
+        int nbr1 = myScanner.nextInt();// Collect the second number
+
+        System.out.println("The product of your two numbers is: " + (nbr0 * nbr1));
+
+        
+    }
+}
+
+
+
+
+/*
+         * Exercise 3
+         * Write a Java program that swaps the contents of two integers A and B
+         * entered by the user, and displays these integers after the swap.
+         */
+package javareview;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //Creation d'un nouvel objet de type scanner
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Please enter a value for A: ");
+        //number1 == A
+        //number2 == B
+        int number1 = myScanner.nextInt();
+        System.out.println("Now enter a value for B: ");
+        int number2 = myScanner.nextInt();
+        System.out.println("+++++BEFORE SWAPING++++ \n A= "+number1+"\n B= "+number2);
+        //Swap the values of A and  B
+        number2 = number2+number1;
+        number1 = number2-number1;
+        number2 = number2-number1;
+        System.out.println("+++++AFTER SWAPING++++ \n A= "+number1+"\n B= "+number2);
+    }
+}
+
+
+
+
+/*Exercise 4
+
+Write a Java program that displays whether an integer entered on the keyboard is even or odd. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int userInt = sc.nextInt();
+        if(userInt % 2 ==0){
+            System.out.println(userInt+" is even");
+        }else{
+            System.out.println(userInt+" is odd");
+        }
+        sc.close();
+    }
+}
+
+
+
+
+/*Exercise 5
+Write a Java program that displays the largest of three integers entered on the keyboard. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int nbr0 =sc.nextInt();
+        System.out.println("Please enter an integer: ");
+        int nbr1 = sc.nextInt();
+        System.out.println("Please enter an integer: ");
+        int nbr2 = sc.nextInt();
+
+        int max = Math.max(nbr2,Math.max(nbr0, nbr1));
+        System.out.println("The maximum is: "+max);
+        sc.close();
+    }
+}
+
+
+
+/*Exercise 6
+Write a Java program that evaluates a grade entered on the keyboard (if the grade is greater than 10, it displays "validated," otherwise "not validated" (Note: the grade is between 0 and 20). */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your grade: ");
+        double grade = sc.nextDouble();
+        if(grade >0 && grade <10){
+            System.out.println("Not Validated");
+        }else if(grade>=10 && grade<=20){
+            System.out.println("Validated");
+        }
+        sc.close();
+    }
+}
+
+
+
+/*Exercise 7
+Write a Java program that asks the user for two numbers m and n and then informs them whether the product of these two numbers is positive or negative. The program includes the case where the product can be zero. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your first number m: ");
+        double m = sc.nextDouble();
+        System.out.println("Please enter your second  number n: ");
+        double n = sc.nextDouble();
+        double result =m*n;
+        if(result == 0){
+            System.out.println("The product is null");
+        }else if (result > 0){
+            System.out.println("The product is positive");
+        }else{
+            System.out.println("The product is negative");
+        }
+        sc.close();
+    }
+}
+
+
+
