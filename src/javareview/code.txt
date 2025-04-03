@@ -145,3 +145,62 @@ public class Main{
 
 
 
+/*Exercise 8
+
+Write a Java program that calculates the absolute value of an integer entered by the user. */
+package javareview;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter en integer: ");
+        int nbr = sc.nextInt();
+        System.out.println("The absolute value is : " + Math.abs(nbr));
+        sc.close();
+    }
+}
+
+
+
+
+/*Exercise 9
+Write a Java program that calculates the average of three integers entered by the user. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your first integer: ");
+        int nbr0 = sc.nextInt();
+        System.out.println("Enter your second integer: ");
+        int nbr1 = sc.nextInt();
+        System.out.println("Enter your third integer: ");
+        int nbr2 = sc.nextInt();
+
+        System.out.println("The average is: "+((nbr0+nbr1+nbr2)/3));
+        sc.close();
+    }
+}
+
+
+
+
+/*Exercise 10
+A store offers its customers a 15% discount for purchases over 200 dirhams. Write a Java program to enter the total price excluding VAT and calculate the amount including VAT, taking into account the discount and VAT = 20%. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the total price: ");
+        double ttPrice = sc.nextInt();
+        if (ttPrice>200){
+            ttPrice = (double) (ttPrice - (ttPrice*0.15));
+        }
+        double toPay = ttPrice + (ttPrice*0.20);
+        System.out.println("You must pay: "+toPay+" dirhams");
+        sc.close();
+    }
+}
