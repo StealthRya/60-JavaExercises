@@ -204,3 +204,230 @@ public class Main{
         sc.close();
     }
 }
+
+
+
+/*Exercise 11
+The photocopy center charges 0.25 DH for the first 10 photocopies, 0.20 DH for the next twenty, and 0.10 DH for more than twenty. Write a Java program that asks the user to enter the number of photocopies made and displays the corresponding invoice. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please the number of copy: ");
+        int nbrCopy =sc.nextInt();
+        double price = 0;
+        if(nbrCopy<=10 && nbrCopy>0){
+            price = nbrCopy*0.25;
+        }else if(nbrCopy<=20 && nbrCopy>0){
+            price = nbrCopy*0.20;
+        }else if(nbrCopy>0 && nbrCopy>20){
+            price = nbrCopy*0.10;
+        }
+        System.out.println("The total price to pay is: "+price+" DH");
+        sc.close();
+    }
+}
+
+
+
+/*Exercise 12
+Write a Java program that asks for a child's age and provides information about their age category, given that the categories are as follows:
+"Chicken from 6 to 7 years old"
+"Pupil from 8 to 9 years old"
+"Minimum from 10 to 11 years old"
+"Cadet after 12 years old." */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the child's age: ");
+        int childAge = sc.nextInt();
+        if(childAge==6 || childAge==7){
+            System.out.println("Chicken");
+        }else if(childAge==8 || childAge==9){
+            System.out.println("Pupil");
+        }else if(childAge==10 || childAge==11){
+            System.out.println("Minimum");
+        }else if(childAge>12){
+            System.out.println("Cadet");
+        }
+        sc.close();
+    }
+}
+
+
+
+/*Exercise 13
+Write a Java program to display the month in letters based on the number entered on the keyboard. (If the user types 1, the program displays January; if 2, it displays February; if 3, it displays March, etc.) */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    /**
+     * @param args
+     */
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number between 1 and 12: ");
+        int nbr = sc.nextInt();
+        String tblMonth[]={"January","Februrary","March","April","Mai","June","July","August","September","November","October","December"};
+        System.out.println(tblMonth[nbr-1]);
+        sc.close();
+    }
+}
+
+/*Exercise 14
+Write a Java program that displays the message "Good evening" 10 times. Using a while loop. */
+package javareview;
+public class Main{
+    public static void main(String[]args){
+        int i=0;
+        while (i<10) {
+            System.out.println((i+1)+"- Good Evening");
+            i+=1;
+        }
+    }
+}
+
+/*Exercise 15
+Write a Java program to calculate the sum S = 1 + 2 + 3 + ... + 10. Using a while loop. */
+package javareview;
+public class Main{
+    public static void main(String[]args){
+        int i = 0,sum=0;
+        while(i<11){
+            sum += i;
+            i++;
+       }
+       System.out.println("The sum is: "+sum);
+    }
+}
+
+/*Exercise 16
+Write a Java program that calculates the sum S = 1 + 2 + 3 + ... + N, where N is entered by the user. Use a while loop. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the value of N: ");
+        int N = sc.nextInt(),sum=0,i=0;
+        while(i<=N){
+            sum+=i;
+            i++;
+        }
+        System.out.println("The sum is: "+sum);
+        sc.close();
+    }
+}
+
+
+/*Exercise 17
+Write a Java program that displays the message "bonjour" 10 times. Use a for loop.*/
+package javareview;
+public class Main{
+    public static void main(String[]args){
+        for(int i = 0;i<10;i++){
+            System.out.println((i+1)+"- bonjour");
+        }
+    }
+}
+
+/*Exercise 18
+Write a Java program that calculates the sum S = 1 + 2 + 3 + ... + 10. Use a for loop.*/
+package javareview;
+public class Main{
+    public static void main(String[]args){
+        int sum=0;
+        for(int i = 0;i<=10;i++){
+            sum+=i;
+        }
+        System.out.println("The sum is: "+sum);
+    }
+}
+
+/*Exercise 19
+Write a Java program that calculates the sum S = 1 + 2 + 3 + 4 + ... + N, where N is entered by the user. Use a for loop. */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int nbr = sc.nextInt();
+        int sum=0;
+        for(int i = 0;i<=nbr;i++){
+            sum+=i;
+        }
+        System.out.println("The sum is: "+sum);
+        sc.close();
+    }
+}
+
+/*Exercise 20
+Write a Java program that displays the multiplication table of 5. Use a for loop. */
+package javareview;
+public class Main{
+    public static void main(String[]args){
+        for(int i = 0;i<=10;i++){
+            System.out.println("5 x "+i+" = "+(5*i));
+        }
+       
+    }
+}
+
+/*Exercise 21
+Write a Java program that displays the multiplication table of an integer entered by the user. Use a for loop.*/
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int nbr = sc.nextInt();
+        for(int i = 0;i<=10;i++){
+            System.out.println( nbr+" x "+i+" = "+(nbr*i));
+        }
+       sc.close();
+    }
+}
+
+/*Exercise 22
+Write a Java program that takes two numbers from the user and finds the greatest common divisor using a for loop.*/
+package javareview;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Collect numbers
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first integer: ");
+        int nbrA = sc.nextInt();
+        System.out.println("Enter the second integer: ");
+        int nbrB = sc.nextInt();
+
+        // Euclid Algorithm implementation
+        int maxNbr = Math.max(nbrA, nbrB);
+        int minNbr = Math.min(nbrA, nbrB);
+        for (int i = 0; !(maxNbr == minNbr); i++) { 
+                int gcd = maxNbr - minNbr;
+                
+                    if (gcd < minNbr) {
+                        maxNbr = minNbr;
+                        minNbr = gcd;
+                        gcd = maxNbr - minNbr;
+                        if(gcd ==minNbr){
+                            System.out.println("__________________\n");
+                            System.out.println("The GCD is: "+gcd);
+                            break;
+                        }
+                    } else {
+                        maxNbr = gcd;
+                        gcd = maxNbr - minNbr;
+                    }
+        }
+        sc.close();
+    }
+}
