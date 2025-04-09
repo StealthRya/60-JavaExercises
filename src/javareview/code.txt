@@ -431,3 +431,224 @@ public class Main {
         sc.close();
     }
 }
+
+
+
+
+/*
+ * Exercise 23
+ * Write a Java program to enter a number and check whether the number is
+ * perfect or not.
+ * A perfect number is a positive integer that is equal to the sum of its proper
+ * positive divisors.
+ * For example: 6 is the first perfect number
+ * The proper divisors of 6 are 1, 2, 3.
+ * Sum of its divisors = 1 + 2 + 3 = 6.
+ * Therefore, 6 is a perfect number.
+ */
+package javareview;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a number: ");
+        int userNumber = sc.nextInt();
+
+        //Declaration of an empty list to store the proper diviors
+        //int[] properDivTable = new int[0];
+        //int [] properDivTable = {};
+        ArrayList<Integer> properDivList = new ArrayList<>();
+
+
+        //Find the number's proper divisors
+        for(int i=1;i<(userNumber-1);i++){
+            if(userNumber%i == 0){
+                properDivList.add(i);
+            }
+        }
+        
+        //Check if the sum gives the initial number
+        int j =0,sum=0;
+        while(j<properDivList.size()){
+            sum+= properDivList.get(j);
+            j++;
+        }
+
+        if(sum == userNumber){
+            System.out.println(userNumber+" is perfect");
+        }else{
+            System.out.println("Not perfect number");
+        }
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 24
+ * Write a Java program to enter a number and calculate its factorial using a
+ * for loop.
+ * The factorial of a number "n" is the product of all positive integers less
+ * than or equal to n. It is denoted by n!.
+ * For example, factorial of 5! = 1*2*3*4*5 = 120.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a number: ");
+        int nbr,facto=1;
+        nbr = sc.nextInt();
+        for(int i=1;i<=nbr;i++){
+            facto *=i;
+        }
+        System.out.println(nbr+"! = "+facto);
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 25
+ * Write a Java program to display all odd numbers from 1 to n using both for
+ * and while loops.
+ */
+package javareview;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int nbr = sc.nextInt();
+        String e;
+        ArrayList<String> list = new ArrayList<>();
+        for(int i= 1; i<=nbr;i++){
+           if(i%2!=0){
+            e = String.valueOf(i);
+            list.add(e);
+           }
+        }
+        int j=0;
+        while(j<list.size()){
+            System.out.println(list.get(j));
+            j++;
+        }
+        sc.close();
+    }
+}
+
+
+
+/*
+ * Exercise 26
+ * Write a Java program to enter a number from the user and count the number of
+ * digits in the given integer using a loop.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("PLease enter a number: ");
+        int nbr = sc.nextInt();
+        //Convert the int into String
+        String nbrStr = String.valueOf(nbr);
+
+        int j=0;
+        for(int i=0; i<nbrStr.length();i++){
+            j+=1;
+        }
+        System.out.println("The number of digits is: "+j);
+        
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 27
+ * Write a Java program to enter a number from the user and find the first and
+ * last digit of the number.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("PLease enter a number: ");
+        int nbr = sc.nextInt();
+        //Convert the int into String
+        String nbrStr = String.valueOf(nbr);
+
+        int lst = nbrStr.length() - 1;
+        System.out.println("The first digit is: "+nbrStr.charAt(0)+"\n The last digit is: "+nbrStr.charAt(lst));
+        System.out.println("The first digit: ");
+    }
+}
+
+
+
+
+
+/*
+ * Exercise 28
+ * Write a Java program that reverses the digits of an integer N entered by the
+ * user.
+ * For example, if N = 35672, the output should be 27653.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter an integer: ");
+        int nbr = sc.nextInt();
+
+        //Convert int into String
+        String nbrStr = String.valueOf(nbr);
+
+        StringBuilder strBuild = new StringBuilder(nbrStr);
+        String reverse = strBuild.reverse().toString();
+        System.out.println(reverse);
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 29
+ * Write a Java program to enter a number and calculate the sum of its digits
+ * using a for loop.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a number: ");
+        int nbr = sc.nextInt();
+        String nbrStr = String.valueOf(nbr);
+        int i =0,sum=0;
+        char chrDigit;
+        int intDigit;
+        while(i<nbrStr.length()){
+             chrDigit = nbrStr.charAt(i);
+             intDigit = chrDigit - '0';
+             sum+=intDigit;
+            i++;
+        }
+        System.out.println("The sum gives: "+sum);
+        sc.close();
+    }
+}

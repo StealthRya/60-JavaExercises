@@ -1,0 +1,224 @@
+Parfait ! 🔥 Voici une version **complète et ultra claire** du **cours sur le casting en Java**, **mise à jour** avec les types **`String`**, **`Object`**, **tableaux**, **`ArrayList`**, et plus encore 👇
+
+---
+
+## 🧠 **Qu’est-ce que le casting en Java ?**
+
+Le **casting** (ou transtypage) est le processus de conversion d’un **type de données en un autre**.
+
+Java permet deux formes principales :
+- **Widening (cast implicite)** : automatique, vers un type plus large
+- **Narrowing (cast explicite)** : manuel, vers un type plus petit ou plus spécifique
+
+---
+
+## 🔢 **Types primitifs (avec casting)**
+
+| Type        | Taille     | Exemple           |
+|-------------|------------|-------------------|
+| `byte`      | 8 bits     | -128 à 127        |
+| `short`     | 16 bits    | -32 768 à 32 767  |
+| `int`       | 32 bits    | Standard pour les entiers |
+| `long`      | 64 bits    | Très grands entiers |
+| `float`     | 32 bits    | Nombres décimaux |
+| `double`    | 64 bits    | Décimales + précises |
+| `char`      | 16 bits    | Caractère Unicode |
+| `boolean`   | 1 bit      | `true` / `false` |
+
+### 🔄 **Casting implicite (widening)** – automatique
+```java
+int x = 42;
+double y = x;  // OK : int vers double
+```
+
+### ⚠️ **Casting explicite (narrowing)** – manuel
+```java
+double pi = 3.14;
+int i = (int) pi;  // Perd la partie décimale
+```
+
+---
+
+## 📜 **Casting entre types non primitifs (références)**
+
+### 1. **Object ↔ String**
+Tous les objets en Java dérivent de `Object`.
+
+```java
+Object obj = "Hello world";
+String text = (String) obj; // cast explicite vers String
+```
+
+⚠️ Si tu castes un `Object` qui n'est **pas une String**, tu auras une **ClassCastException**.
+
+---
+
+### 2. **String → int / double** (via parsing)
+```java
+String s = "42";
+int a = Integer.parseInt(s);
+double d = Double.parseDouble("3.14");
+```
+
+Pas un cast, mais une **conversion avec parsing**.
+
+---
+
+### 3. **int / double → String**
+```java
+int a = 42;
+String s = String.valueOf(a);
+// ou
+String s2 = "" + a;
+```
+
+---
+
+### 4. **Casting avec tableaux (`arrays`)**
+Un tableau est un objet, donc on peut le caster :
+
+```java
+int[] tab = {1, 2, 3};
+Object obj = tab;
+
+int[] back = (int[]) obj; // Cast explicite
+```
+
+Mais attention, on ne peut pas faire :
+```java
+Object[] objTab = tab; // ❌ Erreur de compilation : tableau de primitifs ≠ tableau d’objets
+```
+
+---
+
+### 5. **Casting avec ArrayList**
+
+`ArrayList` est une classe générique :  
+```java
+ArrayList<String> list = new ArrayList<>();
+list.add("Java");
+
+Object obj = list; // Implicite
+ArrayList<String> back = (ArrayList<String>) obj; // Explicite
+```
+
+Si tu veux caster une `ArrayList<Integer>` en `ArrayList<Object>` : ça **marche pas** directement à cause du **type générique**.
+
+---
+
+## 💡 Résumé des conversions les plus fréquentes
+
+| De              | Vers             | Conversion                                   |
+|-----------------|------------------|----------------------------------------------|
+| `int`           | `double`         | implicite                                     |
+| `double`        | `int`            | `(int) valeur`                                |
+| `char`          | `int`            | implicite (Unicode code)                     |
+| `int`           | `char`           | `(char) valeur`                              |
+| `String`        | `int`, `double`  | `Integer.parseInt()`, `Double.parseDouble()` |
+| `int`, `double` | `String`         | `String.valueOf()`, `+ ""`                   |
+| `Object`        | `String`, Array  | Cast explicite avec `(Type)`                 |
+
+---
+
+## 🔥 Code complet de test
+
+```java
+public class CastingDemo {
+    public static void main(String[] args) {
+        // Primitif widening
+        int a = 5;
+        double b = a;
+
+        // Primitif narrowing
+        double pi = 3.1416;
+        int intPi = (int) pi;
+
+        // char ↔ int
+        char letter = 'A';
+        int code = letter;        // 65
+        char fromCode = (char) 66; // 'B'
+
+        // String ↔ int
+        String numStr = "123";
+        int number = Integer.parseInt(numStr);
+        String backToString = String.valueOf(number);
+
+        // Object ↔ String
+        Object o = "Hello";
+        String s = (String) o;
+
+        // Tableau
+        int[] tab = {1, 2, 3};
+        Object objTab = tab;
+        int[] tabBack = (int[]) objTab;
+
+        // ArrayList
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Alice");
+        Object o2 = names;
+        ArrayList<String> back = (ArrayList<String>) o2;
+
+        // Affichage
+        System.out.println("int -> double: " + b);
+        System.out.println("double -> int: " + intPi);
+        System.out.println("char -> int: " + code);
+        System.out.println("int -> char: " + fromCode);
+        System.out.println("String -> int: " + number);
+        System.out.println("int -> String: " + backToString);
+        System.out.println("Object -> String: " + s);
+        System.out.println("ArrayList -> Object: " + back);
+    }
+}
+```
+
+---
+
+
+
+
+
+
+
+
+
+Parfait ! 😎
+
+Si tu veux convertir **le caractère `'4'`** en **entier `4`**, voici **les 3 méthodes** les plus simples :
+
+---
+
+### ✅ Méthode 1 : avec soustraction de `'0'` (la plus rapide)
+
+```java
+char c = '4';
+int number = c - '0';  // '4' - '0' = 52 - 48 = 4
+System.out.println(number);  // Résultat : 4
+```
+
+---
+
+### ✅ Méthode 2 : avec `Character.getNumericValue()`
+
+```java
+char c = '4';
+int number = Character.getNumericValue(c);
+System.out.println(number);  // Résultat : 4
+```
+
+---
+
+### ✅ Méthode 3 : conversion via `String`
+
+```java
+char c = '4';
+int number = Integer.parseInt(String.valueOf(c));
+System.out.println(number);  // Résultat : 4
+```
+
+---
+
+### 🔥 Le plus utilisé pour un seul chiffre : `c - '0'`
+
+C’est la méthode préférée des pros, car elle est rapide et claire.
+
+---

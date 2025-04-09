@@ -1,60 +1,26 @@
 /*
- * Exercise 23
- * Write a Java program to enter a number and check whether the number is
- * perfect or not.
- * A perfect number is a positive integer that is equal to the sum of its proper
- * positive divisors.
- * For example: 6 is the first perfect number
- * The proper divisors of 6 are 1, 2, 3.
- * Sum of its divisors = 1 + 2 + 3 = 6.
- * Therefore, 6 is a perfect number.
- */
-
-/*
- * Exercise 24
- * Write a Java program to enter a number and calculate its factorial using a
- * for loop.
- * The factorial of a number "n" is the product of all positive integers less
- * than or equal to n. It is denoted by n!.
- * For example, factorial of 5! = 1*2*3*4*5 = 120.
- */
-
-/*
- * Exercise 25
- * Write a Java program to display all odd numbers from 1 to n using both for
- * and while loops.
- */
-
-/*
- * Exercise 26
- * Write a Java program to enter a number from the user and count the number of
- * digits in the given integer using a loop.
- */
-
-/*
- * Exercise 27
- * Write a Java program to enter a number from the user and find the first and
- * last digit of the number using a loop.
- */
-
-/*
- * Exercise 28
- * Write a Java program that reverses the digits of an integer N entered by the
- * user.
- * For example, if N = 35672, the output should be 27653.
- */
-
-/*
- * Exercise 29
- * Write a Java program to enter a number and calculate the sum of its digits
- * using a for loop.
- */
-
-/*
  * Exercise 30
  * Write a Java program to enter a number from the user and check whether the
  * number is a palindrome using a loop.
  */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a number: ");
+        int nbr = sc.nextInt();
+        String strNbr = String.valueOf(nbr);
+        StringBuilder strBuilNbr = new StringBuilder(strNbr);
+        String reverse = strBuilNbr.reverse().toString();
+        if(reverse.equals(strNbr)){
+            System.out.println(nbr+" is a palindrom");
+        }else{
+            System.out.println(nbr+" is not a palindrom");
+        }
+        sc.close();
+    }
+}
 
 /*
  * Exercise 31
