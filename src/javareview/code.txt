@@ -652,3 +652,209 @@ public class Main{
         sc.close();
     }
 }
+
+
+
+/*
+ * Exercise 30
+ * Write a Java program to enter a number from the user and check whether the
+ * number is a palindrome.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a number: ");
+        int nbr = sc.nextInt();
+        String strNbr = String.valueOf(nbr);
+        StringBuilder strBuilNbr = new StringBuilder(strNbr);
+        String reverse = strBuilNbr.reverse().toString();
+        if(reverse.equals(strNbr)){
+            System.out.println(nbr+" is a palindrome");
+        }else{
+            System.out.println(nbr+" is not a palindrome");
+        }
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 31
+ * Write a Java program to declare and initialize an array, then input its
+ * elements from the user and display the array.
+ */
+package javareview;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many elements do you want to put in the table? ");
+        int nbrElement= sc.nextInt();
+        sc.nextLine();
+        String[] tbl = new String[nbrElement];
+        for(int i=0; i<nbrElement;i++){
+            System.out.println("Element "+(i+1)+":");
+            String element = sc.nextLine();
+            tbl[i]=element;
+        }
+        System.out.println("____________________________");
+        System.out.println(Arrays.toString(tbl));
+        sc.close();
+    }
+}
+
+
+
+/*
+ * Exercise 32
+ * Write a Java program to declare an array, then input its elements from the
+ * user and display all the negative elements.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many numbers do you want to insert?");
+        int nbr = sc.nextInt();
+        sc.nextLine();
+        int[] tbl= new int[nbr];
+        for(int i=0;i<nbr;i++){
+            System.out.println("Enter number "+(i+1)+": ");
+            int number = sc.nextInt();
+            tbl[i] = number;
+        }
+        for(int j=0; j<nbr;j++){
+            if(tbl[j]<0){
+                System.out.println(tbl[j]);
+            }
+        }
+        sc.close();
+    }
+}
+
+
+
+/*
+ * Exercise 33
+ * Write a Java program to declare an array, then input its elements from the
+ * user and find the sum of the array elements.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many numbers do you want to insert?");
+        int nbr = sc.nextInt();
+        sc.nextLine();
+        int[] tbl= new int[nbr];
+        for(int i=0;i<nbr;i++){
+            System.out.println("Enter number "+(i+1)+": ");
+            int number = sc.nextInt();
+            tbl[i] = number;
+        }
+        int sum =0;
+        for(int j=0; j<nbr;j++){
+            sum +=tbl[j];
+        }
+        System.out.println("The sum give: "+sum);
+        sc.close();
+    }
+}
+
+
+
+
+
+/*
+ * Exercise 34
+ * Write a Java program to declare an array, then input its elements from the
+ * user and find the maximum and minimum elements in the array.
+ */
+package javareview;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many numbers do you want to insert?");
+        int nbr = sc.nextInt();
+        sc.nextLine();
+        int[] tbl= new int[nbr];
+        for(int i=0;i<nbr;i++){
+            System.out.println("Enter number "+(i+1)+": ");
+            int number = sc.nextInt();
+            tbl[i] = number;
+        }
+        int max = tbl[0];
+        for(int j=0; j<nbr;j++){
+            if(tbl[j]>max){
+                max=tbl[j];
+            }
+        }
+        System.out.println("The max is: "+max);
+
+        int min = tbl[0];
+        for(int j=0; j<nbr;j++){
+            if(tbl[j]<min){
+                min=tbl[j];
+            }
+        }
+        System.out.println("The min is: "+min);
+
+        sc.close();
+    }
+}
+
+
+
+
+/*
+ * Exercise 35
+ * Write a Java program to declare an array, then input its elements from the
+ * user and find the largest and the second largest element in the array.
+ */
+package javareview;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many numbers do you want to insert?");
+        int nbr = sc.nextInt();
+        sc.nextLine();
+        int[] tbl= new int[nbr];
+        for(int i=0;i<nbr;i++){
+            System.out.println("Enter number "+(i+1)+": ");
+            int number = sc.nextInt();
+            tbl[i] = number;
+        }
+        int max = tbl[0];
+        int maxIndex =0;
+        for(int j=0; j<nbr;j++){
+            if(tbl[j]>max){
+                max=tbl[j];
+                maxIndex = j;
+            }
+        }
+        System.out.println("The max is: "+max);
+        
+        //Convert the table into an ArrayList in order to find the second max
+        ArrayList<Integer> lst = new ArrayList<>();
+        for(int num : tbl){
+            lst.add(num);
+        }
+        lst.remove(Integer.valueOf(max));
+
+
+        int secondMax = Collections.max(lst);
+        System.out.println("The second largest number is: "+secondMax);
+        sc.close();
+    }
+}

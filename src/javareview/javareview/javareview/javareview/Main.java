@@ -1,62 +1,16 @@
 /*
- * Exercise 30
- * Write a Java program to enter a number from the user and check whether the
- * number is a palindrome using a loop.
+ * Exercise 36
+ * Write a Java program to declare an array, then input its elements from the
+ * user and count the number of even and odd elements in the array.
  */
 package javareview;
 import java.util.Scanner;
 public class Main{
     public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter a number: ");
-        int nbr = sc.nextInt();
-        String strNbr = String.valueOf(nbr);
-        StringBuilder strBuilNbr = new StringBuilder(strNbr);
-        String reverse = strBuilNbr.reverse().toString();
-        if(reverse.equals(strNbr)){
-            System.out.println(nbr+" is a palindrom");
-        }else{
-            System.out.println(nbr+" is not a palindrom");
-        }
         sc.close();
     }
 }
-
-/*
- * Exercise 31
- * Write a Java program to declare and initialize an array, then input its
- * elements from the user and display the array.
- */
-
-/*
- * Exercise 32
- * Write a Java program to declare an array, then input its elements from the
- * user and display all the negative elements.
- */
-
-/*
- * Exercise 33
- * Write a Java program to declare an array, then input its elements from the
- * user and find the sum of the array elements.
- */
-
-/*
- * Exercise 34
- * Write a Java program to declare an array, then input its elements from the
- * user and find the maximum and minimum elements in the array.
- */
-
-/*
- * Exercise 35
- * Write a Java program to declare an array, then input its elements from the
- * user and find the largest and the second largest element in the array.
- */
-
-/*
- * Exercise 36
- * Write a Java program to declare an array, then input its elements from the
- * user and count the number of even and odd elements in the array.
- */
 
 /*
  * Exercise 37
